@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:hai/task1.dart';
+
 class Task extends StatefulWidget {
   const Task({super.key});
 
@@ -14,10 +15,13 @@ class _TaskState extends State<Task> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    Timer(Duration(seconds: 5), () {
-      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => Taskc(),));
-    },);
+    Timer(Duration(seconds: 3), () {
+      Navigator.of(
+        context,
+      ).pushReplacement(MaterialPageRoute(builder: (context) => Taskc()));
+    });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,9 +29,8 @@ class _TaskState extends State<Task> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            SizedBox(width: 10,height: 5,),
-           Image(image: AssetImage('assests/new.jpg'))
-
+            SizedBox(width: 10, height: 5),
+            Image(image: AssetImage('assests/new.jpg')),
           ],
         ),
       ),

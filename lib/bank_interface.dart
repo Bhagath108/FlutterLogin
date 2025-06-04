@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:hai/home.dart';
 
@@ -10,9 +12,15 @@ class Bank extends StatefulWidget {
 
 class _BankState extends State<Bank> {
   @override
+  void initState() {
+    super.initState();
+    Timer(Duration(seconds: 3), () {});
+  }
+
+  @override
   Widget build(BuildContext context) {
-    TextEditingController usernamecontroller =TextEditingController();
-    TextEditingController passwordcontroller =TextEditingController();
+    TextEditingController usernamecontroller = TextEditingController();
+    TextEditingController passwordcontroller = TextEditingController();
 
     return Scaffold(
       appBar: AppBar(
@@ -63,14 +71,19 @@ class _BankState extends State<Bank> {
               SizedBox(height: 16),
               ElevatedButton(
                 onPressed: () {
-                  if(usernamecontroller.text == "admin" && passwordcontroller.text=="admin"){
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => const Homepage()));
+                  if (usernamecontroller.text == "admin" &&
+                      passwordcontroller.text == "admin") {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => const Homepage()),
+                    );
                   }
-
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.blueAccent,
-                shape: RoundedSuperellipseBorder(borderRadius: BorderRadius.circular(10))),
+                  shape: RoundedSuperellipseBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
 
                 child: Text(
                   'Submit',
