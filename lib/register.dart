@@ -86,12 +86,30 @@ class _RegisterState extends State<Register> {
                     backgroundColor: Colors.deepOrange,
                   ),
                   child: Text(
-                    'Register',
+                    'Login',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Colors.black87,
                     ),
                   ),
+                ),
+                SizedBox(height: 20),
+                Text(
+                  'Create an account?',
+                  style: TextStyle(fontSize: 15, color: Colors.black87),
+                ),
+                SizedBox(height: 5),
+                TextButton(
+                  onPressed: () {},
+                  style: TextButton.styleFrom(
+                    backgroundColor: Colors.black,
+                    textStyle: TextStyle(
+                      fontSize: 10,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  child: Text('Sign in'),
                 ),
               ],
             ),
