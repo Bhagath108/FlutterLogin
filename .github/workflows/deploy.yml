@@ -16,7 +16,7 @@ jobs:
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.32.0'
+          flutter-version: '3.19.0'
           channel: 'stable'
 
       - name: Install Dependencies
@@ -24,6 +24,11 @@ jobs:
 
       - name: Build Web
         run: flutter build web
+
+      - name: Move build to public (for S3 sync)
+        run: |
+          mkdir public
+          cp -r build/web/* public/
 
       - name: Deploy to S3
         uses: jakejarvis/s3-sync-action@master
@@ -34,7 +39,3 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: ${{ secrets.AWS_REGION }}
-      - name: Move build files
-        run: |
-          mkdir public
-          cp -r build/web/* public/
