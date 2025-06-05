@@ -86,7 +86,7 @@ class _RegisterState extends State<Register> {
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(20),
                     ),
-                    labelText: 'Mobile No',
+                    labelText: 'Phone No',
                   ),
                 ),
                 SizedBox(height: 30),
