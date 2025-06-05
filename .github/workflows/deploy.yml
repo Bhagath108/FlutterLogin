@@ -17,7 +17,7 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           flutter-version: '3.32.0'
-          channel: 'stable'
+          channel: stable
 
       - name: Install Dependencies
         run: flutter pub get
@@ -31,7 +31,7 @@ jobs:
       - name: Deploy to S3
         uses: jakejarvis/s3-sync-action@master
         with:
-          args: --delete build/web/ s3://$AWS_S3_BUCKET/
+          args: --delete build/web/ s3://${{ secrets.S3_BUCKET_NAME }}/
         env:
           AWS_S3_BUCKET: ${{ secrets.S3_BUCKET_NAME }}
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
