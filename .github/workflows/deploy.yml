@@ -32,9 +32,9 @@ jobs:
         uses: jakejarvis/s3-sync-action@master
         with:
           args: --delete
+          source_dir: build/web  # ✅ Correct way to specify the source directory
         env:
           AWS_S3_BUCKET: ${{ secrets.S3_BUCKET_NAME }}
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: ${{ secrets.AWS_REGION }}
-          SOURCE_DIR: "build/web"
