@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hai/successfully.dart';
 
 class Register extends StatefulWidget {
   const Register({super.key});
@@ -24,6 +25,18 @@ class _RegisterState extends State<Register> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                SizedBox(
+                  width: 100,
+                  height: 100,
+                  child: ClipOval(
+                    child: Image.asset(
+                      'assests/profile.jpg',
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+
+                SizedBox(height: 15),
                 TextField(
                   controller: firstcontroller,
                   decoration: InputDecoration(
@@ -78,7 +91,13 @@ class _RegisterState extends State<Register> {
                 ),
                 SizedBox(height: 30),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(
+                        builder: (context) => const Successfully(),
+                      ),
+                    );
+                  },
                   style: ElevatedButton.styleFrom(
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20),
