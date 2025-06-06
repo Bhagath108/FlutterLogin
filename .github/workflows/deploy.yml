@@ -21,7 +21,7 @@ jobs:
       - name: Move build to public (for S3 sync)
         run: |
           mkdir public
-          cp -r build/web/* public/
+          cp -r C:\Users\bhaga\StudioProjects\hai\web\* public/
       - name: Deploy to S3
         uses: jakejarvis/s3-sync-action@master
         with:
